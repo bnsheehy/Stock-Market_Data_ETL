@@ -1,0 +1,63 @@
+
+Stock Market Data ETL Python Libraries:
+
+Pandas - required for most operations that will create and transform the data within DataFrames.
+
+	Installation:  https://pandas.pydata.org/docs/getting_started/install.html
+
+Numpy - similar to Pandas, but lighter weight and faster. I use Numpy arrays for cases where I need to download data one ticker at a time, or loop through a bunch of tickers, then assemble the array one row at a time. Appending to a Numpy array is much faster, uses less memory, than appending to a Pandas DataFrame. Once the array is assembled, I convert it to a DataFrame.
+
+	Installation:  https://numpy.org/install/
+
+Time - I use the time library to convert dates back and forth between DateTime and string formats, and to keep track of how long some modules take to run when I'm trying to optimize the speed of the processes.
+
+	Installation:  native to Python, just use "import time".  https://docs.python.org/3/library/time.html#functions
+
+TQDM - this is handy way to visualize the progress of looping functions with progress bars.
+
+	Installation:  https://pypi.org/project/tqdm/
+
+Intrinio - this is my primary data source. They have a pretty robust set of documentation with API SDKs for R, Python, Java, Ruby and other languages.
+
+	Documentation: https://www.intrinio.com/help-center
+
+ZipFile - this is an easy way to convert CSV files to/from the Zip format. I use it when saving and retrieving files from AWS S3.
+
+	Installation:  native to Python, https://docs.python.org/3/library/zipfile.html
+
+BytesIO - also helpful when moving files to/from AWS S3 in Python
+
+	Installation: native to Python, https://docs.python.org/3/library/io.html
+
+URLlib - sometimes you need to work with web APIs, instead of APIs optimized for Python. This tool is handy for pulling data directly from URL-based web APIs.
+
+	Installation: native to Python, https://docs.python.org/3/library/urllib.html
+
+Concurrent Futures - this is a great tool for spreading out work assignments, such as looping functions, among several processors within your hardware stack in order to run them faster. For example, if your Intel PC has eight cores, this tool will spread the work over all eight cores, then assemble the results into a single array-like object which can be converted to a DataFrame. 
+
+	Installation: native to Python, https://docs.python.org/3/library/concurrent.futures.html.  Also, here's a great series of videos on how to do distributed processing in Python:  https://youtu.be/fKl2JW_qrso
+
+AWS Boto - this is the AWS Python library for interacting with S3 and other AWS services.
+
+	Installation: https://pypi.org/project/boto/
+
+Pyarrow - one of several Python libraries that I use to push and pull data from my AWS RDS database. This one comes from the Apache project.
+
+	Installation: https://arrow.apache.org/docs/python/install.html
+
+MySQL Connector - one of several Python libraries that I use to push and pull data from my AWS RDS database.
+
+	Installation: https://dev.mysql.com/doc/dev/connector-python/8.0/
+
+SQL Alchemy - one of several Python libraries that I use to push and pull data from my AWS RDS database. This one works better with queries that involve larger amounts of data.
+
+	Installation: https://www.sqlalchemy.org/
+
+FinViz - these guys run one of the most popular and data intensive investing websites, and they provide a lot of free data through their API. I use them for their sector / industry mapping, which is very similar to S&P GICS. I'm not sure how they get away with it, but I'll use it as long as they maintain it.
+
+	Installation: https://finvizfinance.readthedocs.io/en/latest/
+
+Prefect - this is the best ETL workflow automation and scheduling tool that I've found lately. It is more flexible and more completely documented than Airflow.
+
+	Documentation: https://docs.prefect.io/core/
+
